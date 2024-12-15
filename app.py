@@ -15,6 +15,11 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 app = FastAPI()
 
+# Root endpoint
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the YouTube video summarizer API!"}
+
 # Default prompt for Google Gemini Pro
 base_prompt = """
 You are an expert summarizer for YouTube videos. Your task is to create a clear and insightful summary based on the transcript. Include:
